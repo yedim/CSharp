@@ -45,7 +45,7 @@ namespace Chapter01_02
             Console.WriteLine("{0}", res1);
 
             CMyClass tmpMC = new CMyClass();//일반 메소드는 객체가 있어야 호출가능
-            int res2 = tmpMC.Multiply(5, 6);
+            int res2 = tmpMC.Multiply(5, 6);//static 메소드는 호출불가
             Console.WriteLine("{0}", res2);
 
             Console.ReadKey();
