@@ -16,5 +16,32 @@ namespace BaseContainer
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 새창NToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BaseGame theGame = new BaseGame();
+            theGame.MdiParent = this;
+            theGame.Show();
+        }
+
+        private void 계단식배열ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void 가로배열ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void 세로배열ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileVertical);
+        }
     }
 }
