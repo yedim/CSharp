@@ -44,6 +44,7 @@
             this.bClear.TabIndex = 0;
             this.bClear.Text = "button1";
             this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
             // statusLabel
             // 
@@ -62,6 +63,7 @@
             this.bInput.TabIndex = 2;
             this.bInput.Text = "button2";
             this.bInput.UseVisualStyleBackColor = true;
+            this.bInput.Click += new System.EventHandler(this.bInput_Click);
             // 
             // tNumber1
             // 
