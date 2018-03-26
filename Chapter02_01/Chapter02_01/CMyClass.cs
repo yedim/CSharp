@@ -34,5 +34,17 @@ namespace Chapter02_01
             string res = string.Format("{0}학년 {1}, {2}명", theGrade, theName, theStudentCount);
             return (res);
         }
+        public void Increase(int aValue)
+        {
+            aValue++;
+        }
+        public void Increase(ref int aValue)
+        {
+            aValue++;
+        }
+        public void MakeValue(out int aValue)
+        {
+            aValue = 19; //매개변수 할당하지 않으면 에러
+        }
     }
 }
