@@ -53,6 +53,73 @@ namespace Chapter01_03
             Console.WriteLine("e : {0}", e);
             Console.WriteLine("f : {0}", f);
 
+ /*           Console.Write("\nInput Name : ");
+            string tmpName = Console.ReadLine();
+            Console.WriteLine("Your Name : {0}", tmpName);
+            
+            Console.Write("\nInput Char : ");
+            ConsoleKeyInfo tmpKey = Console.ReadKey();
+ 
+            int i;
+            for (i = 0; i < tmpName.Length;i++)
+            {
+                if(tmpName[i].Equals(tmpKey.KeyChar)==true)
+                {
+                    break;
+                }
+            }
+
+            if(i==tmpName.Length)
+            {
+                Console.WriteLine("\nChar : {0} Fail", tmpKey.KeyChar);
+            }
+            else
+            {
+                Console.WriteLine("\nChar : {0} Success", tmpKey.KeyChar);
+            }
+  */
+            int tmpSW = 1;
+            switch(tmpSW)
+            {
+                case 0:
+                    Console.WriteLine("SW : 0");
+                    break;
+                case 1:
+                    Console.WriteLine("SW : 1");
+                    break;
+                default:
+                    Console.WriteLine("None");
+                    break;
+            }
+
+            string strSW = "apple";
+            switch(strSW)
+            {
+                case "apple":
+                    Console.WriteLine("apple,apple");
+                    break;
+                case "banana" :
+                    Console.WriteLine("banana, banana");
+                    break;
+                default:
+                    Console.WriteLine("Fruits");
+                    break;
+            }
+
+            int i;
+            int[] arr = new int[] { 1, 2, 3, 4, 5 }; //선언과 동시에 값 대입
+            for (i = 0; i < arr.Length;i++ )
+            {
+                Console.Write("{0} ", arr[i]);
+            }
+            Console.WriteLine();
+
+            foreach(int iter in arr)//배열안의 모든 값을 순서 상관없이 꺼내라!
+            {
+                Console.Write("{0}", iter);
+            }
+            Console.WriteLine();
+
             Console.ReadKey();
         }
     }
