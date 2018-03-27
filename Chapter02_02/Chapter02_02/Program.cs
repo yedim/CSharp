@@ -61,6 +61,29 @@ namespace Chapter02_02
             tmpC.MakeCard(7);
             tmpC.MakeCard(10, "Heart");
 
+            CSmartPhone tmpSP1 = new CSmartPhone();
+            CSmartPhone tmpSP2 = new CSamsungPhone();
+            CSmartPhone tmpSP3 = new CLGPhone();
+
+            Console.WriteLine(tmpSP1.GetMarket());
+            Console.WriteLine(tmpSP2.GetMarket());
+            Console.WriteLine(tmpSP3.GetMarket());
+
+            Console.WriteLine(tmpSP1.GetButtonCount());
+            Console.WriteLine(tmpSP2.GetButtonCount());
+            Console.WriteLine(tmpSP3.GetButtonCount());
+
+            if(tmpSP2 is CSamsungPhone)//java에서 instance of 
+            {
+                CSamsungPhone tmpSP4 = (CSamsungPhone)tmpSP2;
+                Console.WriteLine(tmpSP4.GetButtonCount());
+            }
+
+            CLGPhone tmpSP5 = tmpSP3 as CLGPhone;//실패하면 널
+            if(tmpSP5!=null)
+            {
+                Console.WriteLine(tmpSP5.GetButtonCount());
+            }
             Console.ReadKey();
         }
     }
