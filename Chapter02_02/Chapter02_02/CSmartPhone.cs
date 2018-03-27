@@ -8,11 +8,15 @@ namespace Chapter02_02
 {
     class CSmartPhone 
     {
+        public string theID;
+
         private string theMarket;
 
         public CSmartPhone()
         {
             theMarket = "Google";
+
+            theID = "Noname";
         }
 
         public virtual string GetMarket()

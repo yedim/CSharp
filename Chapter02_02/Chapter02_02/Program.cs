@@ -84,7 +84,35 @@ namespace Chapter02_02
             {
                 Console.WriteLine(tmpSP5.GetButtonCount());
             }
+            CSmartPhone tmpSP7 = new CSmartPhone();
+            CSmartPhone tmpSP8 = new CSmartPhone(); // 초기화 안하면 error.
+            CSmartPhone tmpSP9;// = new CSmartPhone(); //out은 초기화 안해도 됨.
+
+            UseSmartPhone(tmpSP7);
+            ChangeSmartPhone(ref tmpSP8);
+            MakeSmartPhone(out tmpSP9);
+
+            Console.WriteLine(tmpSP7.theID);
+            Console.WriteLine(tmpSP8.theID);
+            Console.WriteLine(tmpSP9.theID);
+
             Console.ReadKey();
+        }
+
+        static void UseSmartPhone(CSmartPhone aPhone)
+        {
+            aPhone.theID = "Use";
+        }
+
+        static void ChangeSmartPhone(ref CSmartPhone aPhone)
+        {
+            aPhone.theID = "Change";
+        }
+
+        static void MakeSmartPhone(out CSmartPhone aPhone)
+        {
+            aPhone = new CSmartPhone();//생성안하면 error
+            aPhone.theID = "Make";
         }
     }
 }
