@@ -1,4 +1,4 @@
-﻿
+﻿@using NetMVC01.Models
 @{
     Layout = null;
 }
@@ -20,6 +20,21 @@
             <td>회원가입 링크</td>
             <td>@Html.ActionLink("회원가입","Join")</td>
         </tr>
+    </table>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>이름</td>
+            <td>이메일</td>
+        </tr>
+        @foreach(CUser iter in ViewBag.theUsers)
+        {
+            <tr>
+                <td>@iter.theID</td>
+                <td>@iter.theName</td>
+                <td>@iter.theEMail</td>
+            </tr>
+        }
     </table>
 </body>
 </html>
