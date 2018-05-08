@@ -16,7 +16,12 @@
         <h2><a href="@Url.Action("Index","Home")"><img src="../images/back.png"/></a></h2>
     </div>
     @*<a href="@Url.Action("","")">Home</a>*@
-
+    
+    @if(ViewBag.bFail==1)
+    {
+    <p>중복된 아이디가 있습니다.</p>
+    }
+    
     @using(Html.BeginForm("Join","Home"))
     {
         <table>

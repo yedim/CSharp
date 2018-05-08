@@ -30,6 +30,12 @@ namespace NetMVC01.Models
             tmpUser.theDate = DateTime.Now;
             theUsers.Add(tmpUser);
 */
+            string tmpID = aUser.theID;
+            int tmpCount = theUserContext.TUser3513.Where(x => x.theID == tmpID).Count();
+            if(tmpCount>0)
+            {
+                return (0);
+            }
 
             TUser3513 tmpUser = new TUser3513();
             tmpUser.theID = aUser.theID;
@@ -67,7 +73,7 @@ namespace NetMVC01.Models
             return (resUsers);
         }
 
-        public int CheckUser(string aID, string aPW)
+        public int CheckUser(string aID, string aPW, out CUser aUser)
         {
             //foreach(CUser iter in theUsers)
             //{
@@ -76,6 +82,25 @@ namespace NetMVC01.Models
             //        return (1);
             //    }
             //}
+
+            Table<TUser3513> users = theUserContext.GetTable<TUser3513>();
+            IQueryable<TUser3513> tmpQ = from iter in users
+                                         where iter.theID == aID && iter.thePW == aPW
+                                         select iter;
+
+            if(tmpQ.Count()>0)
+            {
+                List<TUser3513> tmpUser = tmpQ.Take(1).ToList();//take는 데이터 하나 가져옴. 그래서 0만 유효함
+                aUser = new CUser();
+                aUser.theID = tmpUser[0].theID;
+                aUser.thePW = tmpUser[0].thePW;
+                aUser.theName = tmpUser[0].theName;
+                aUser.theEMail = tmpUser[0].theEMail;
+                aUser.bSubscription = tmpUser[0].bSubscription == 1 ? true : false;
+                aUser.theDate = tmpUser[0].theDate;
+                return (1);
+            }
+            aUser = new CUser();
             return (0);
         }
     }
