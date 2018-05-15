@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Collections;
+
 namespace Chapter03_01
 {
     class Program
@@ -56,6 +58,7 @@ namespace Chapter03_01
             Console.WriteLine(tmpStrLists[1, 2]);
 
             int j;
+            
             for (i = 0; i < tmpStrLists.GetLength(0);i++ )
             {
                 for(j=0; j<tmpStrLists.GetLength(1); j++)
@@ -64,11 +67,44 @@ namespace Chapter03_01
                 }
                 Console.WriteLine();
             }
+
             foreach(String iter in tmpStrLists)
             {
                 Console.WriteLine("{0}, ", iter);
             }
-                Console.ReadKey();
+
+            ArrayList tmpAL = new ArrayList();
+            tmpAL.Add(10);
+            tmpAL.Add("AAA");
+            tmpAL.Add(20);
+            tmpAL.Add("BBB");
+            tmpAL.Add(30);
+            Console.WriteLine(tmpAL[0]);
+            Console.WriteLine(tmpAL[3]);
+
+            Console.WriteLine();
+            for (i = 0; i < tmpAL.Count; i++ )
+            {
+                Console.Write("{0}, ", tmpAL[i]);
+            }
+            Console.WriteLine();
+            foreach(Object iter in tmpAL)
+            {
+                Console.Write("{0}, ", iter);
+            }
+
+            int sum = 0;
+            foreach(Object iter in tmpAL)
+            {
+                if(iter is int)
+                {
+                    int tmpValue = (int)iter;
+                    sum += tmpValue;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Sum : {0}", sum);
+            Console.ReadKey();
         }
     }
 }
