@@ -21,7 +21,7 @@ namespace Chapter03_02
             theW = 0;
         }
 
-        public int this[int aIndex]
+        public int this[int aIndex]//배열과 같이 동작한다.
         {
             get
             {
@@ -54,8 +54,8 @@ namespace Chapter03_02
 
             set
             {
-                if (aStr.Equals("X") == true) { theX = value; }
-                if (aStr.Equals("Y") == true) { theY = value; }
+                if (aStr.Equals("X") == true) { theX = value; }//매개변수 역할
+                if (aStr.Equals("Y") == true) { theY = value; }//tmp=8;
                 if (aStr.Equals("Z") == true) { theZ = value; }
                 if (aStr.Equals("W") == true) { theW = value; }
             }
