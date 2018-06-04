@@ -66,7 +66,7 @@ namespace Chapter03_02
                 Console.WriteLine("Find!");
             }
 
-            List<List<string>> itemList = new List<List<string>>();
+            List<List<string>> itemList = new List<List<string>>();//List<string>이 타입
             List<string> itemAttack = new List<string>();
             itemAttack.Add("Sword");
             itemAttack.Add("Axe");
@@ -100,6 +100,59 @@ namespace Chapter03_02
             Console.WriteLine(itemList[1][0]);
             Console.WriteLine(itemList[2][2]);
 
+            SortedList<string, int> tmpSL = new SortedList<string, int>();//sortedlist의 key는 PrimaryKey와 특성이 동일. 자동으로 정렬됨.
+            tmpSL.Add("Hong", 89);
+            tmpSL.Add("Lee", 85);
+            tmpSL.Add("Choi", 75);
+            tmpSL.Add("Kim", 92);
+
+            foreach(KeyValuePair<string,int> iter in tmpSL)
+            {
+                Console.WriteLine("{0} : {1}", iter.Key, iter.Value);
+            }
+            foreach(string key in tmpSL.Keys)
+            {
+                Console.WriteLine("{0} : {1}", key, tmpSL[key]);
+            }
+
+            tmpSL["Jung"] = 89;//Add
+            tmpSL["Hong"] = 95;//Modify
+
+            foreach(string key in tmpSL.Keys)
+            {
+                Console.WriteLine("{0} : {1}", key, tmpSL[key]);
+            }
+            tmpSL["Choi"] = 92;//Modify
+
+            Console.WriteLine("===Score List===");
+
+            SortedList<int, List<string>> tmpScores = new SortedList<int, List<string>>();//점수는 int, 이름은 list<string>.각 점수에 대한 가변배열을 만든다.
+            foreach(KeyValuePair<string,int> iter in tmpSL)
+            {
+                string tmpName = iter.Key;
+                int tmpScore = iter.Value;
+
+                if (tmpScores.ContainsKey(tmpScore) == true)
+                {
+                    tmpScores[tmpScore].Add(tmpName);//중복되는 값이 있다면 tmpScores[tmpScore]가 list여서 add하면 바로 list에 추가됨.
+                }
+                else
+                {
+                    List<string> tmpArrs = new List<string>();//중복되는 값이 없다면 새로 list생성한다.
+                    tmpArrs.Add(tmpName);
+                    tmpScores.Add(tmpScore, tmpArrs);
+                }
+            }
+
+            foreach(int iterScore in tmpScores.Keys.Reverse())
+            {
+                Console.Write("{0} :", iterScore);
+                foreach(string iterName in tmpScores[iterScore])
+                {
+                    Console.Write("{0} , ", iterName);
+                }
+                Console.WriteLine();
+            }
             Console.ReadKey();
         }
     }
