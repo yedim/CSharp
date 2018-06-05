@@ -86,7 +86,52 @@ namespace Linq1
             {
                 Console.WriteLine(iter);
             }
+
+            int[] numbers = { 35, 10, 27, 31, 23, 30, 40, 74, 81, 56, 45, 93 };
+
+            var resNum1 = numbers.Where(x => x > 30);
+            var resNum2 = from num in numbers
+                          where num > 30
+                          select num;
+            PrintNumbers(1, resNum1);
+            PrintNumbers(2, resNum2);
+
+            var resNum3 = numbers.Where(num => 10 <num && num<30);
+            var resNum4 = from num in numbers
+                          where 10 < num && num < 30
+                          select num;
+            PrintNumbers(3, resNum3);
+            PrintNumbers(4, resNum4);
+
+            var resNum5 = numbers.Where((num,idx) => num>10 && idx < 5);
+            var resNum6 = numbers.Where((num, idx) => (num > 10 && idx < 5) || (num>50 && idx>=5));
+            PrintNumbers(5, resNum5);
+            PrintNumbers(6, resNum6);
+
+            var resNum7 = numbers.OrderBy(num => num);
+            var resNum8 = from num in numbers
+                          orderby num
+                          select num;
+            PrintNumbers(7, resNum7);
+            PrintNumbers(8, resNum8);
+
+            var resNum9 = numbers.OrderBy(num => num);
+            var resNum10 = from num in numbers
+                          orderby num descending
+                          select num;
+            PrintNumbers(9, resNum9);
+            PrintNumbers(10, resNum10);
+
             Console.ReadKey();
+        }
+        public static void PrintNumbers(int aIndex, IEnumerable<int> aNums)
+        {
+            Console.WriteLine("== Linq Number{0} ===", aIndex);
+            foreach(int iter in aNums)
+            {
+                Console.Write(iter + ". ");
+            }
+            Console.WriteLine();
         }
     }
 }
