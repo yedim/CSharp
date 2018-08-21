@@ -11,16 +11,16 @@ namespace Chapter01_03
         class CMyInt
         {
             public int theValue;
-            //public override string ToString()
-            //{
-            //    Console.WriteLine("-");
-            //    return (theValue.ToString());
-            //}
+            public override string ToString()
+            {
+                Console.WriteLine("-");
+                return (theValue.ToString());
+            }
         }
         static void Main(string[] args)
         {
             int a = 12345;
-            int b = 1;
+            int b = a;
             Console.WriteLine("Before");
             Console.WriteLine("a : {0}", a);
             Console.WriteLine("b : {0}", b);
@@ -78,47 +78,47 @@ namespace Chapter01_03
                 Console.WriteLine("\nChar : {0} Success", tmpKey.KeyChar);
             }
   */
-            int tmpSW = 1;
-            switch(tmpSW)
-            {
-                case 0:
-                    Console.WriteLine("SW : 0");
-                    break;
-                case 1:
-                    Console.WriteLine("SW : 1");
-                    break;
-                default:
-                    Console.WriteLine("None");
-                    break;
-            }
+            //int tmpSW = 1;
+            //switch(tmpSW)
+            //{
+            //    case 0:
+            //        Console.WriteLine("SW : 0");
+            //        break;
+            //    case 1:
+            //        Console.WriteLine("SW : 1");
+            //        break;
+            //    default:
+            //        Console.WriteLine("None");
+            //        break;
+            //}
 
-            string strSW = "apple";
-            switch(strSW)
-            {
-                case "apple":
-                    Console.WriteLine("apple,apple");
-                    break;
-                case "banana" :
-                    Console.WriteLine("banana, banana");
-                    break;
-                default:
-                    Console.WriteLine("Fruits");
-                    break;
-            }
+            //string strSW = "apple";
+            //switch(strSW)
+            //{
+            //    case "apple":
+            //        Console.WriteLine("apple,apple");
+            //        break;
+            //    case "banana" :
+            //        Console.WriteLine("banana, banana");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Fruits");
+            //        break;
+            //}
 
-            int i;
-            int[] arr = new int[] { 1, 2, 3, 4, 5 }; //선언과 동시에 값 대입
-            for (i = 0; i < arr.Length;i++ )
-            {
-                Console.Write("{0} ", arr[i]);
-            }
-            Console.WriteLine();
+            //int i;
+            //int[] arr = new int[] { 1, 2, 3, 4, 5 }; //선언과 동시에 값 대입
+            //for (i = 0; i < arr.Length;i++ )
+            //{
+            //    Console.Write("{0} ", arr[i]);
+            //}
+            //Console.WriteLine();
 
-            foreach(int iter in arr)//배열안의 모든 값을 순서 상관없이 꺼내라!
-            {
-                Console.Write("{0}", iter);
-            }
-            Console.WriteLine();
+            //foreach(int iter in arr)//배열안의 모든 값을 순서 상관없이 꺼내라!
+            //{
+            //    Console.Write("{0}", iter);
+            //}
+            //Console.WriteLine();
 
             Console.ReadKey();
         }

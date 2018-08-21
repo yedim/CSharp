@@ -122,6 +122,125 @@ namespace Linq1
             PrintNumbers(9, resNum9);
             PrintNumbers(10, resNum10);
 
+            var resNum11 = numbers.OrderBy(num => (num % 10) * 10 + num / 10);
+            var resNum12 = from num in numbers
+                           orderby (num%10)*10+num/10
+                           select num;
+
+            var resNum13 = numbers.OrderBy(num => num / 10);
+            var resNum14 = from num in numbers
+                           orderby num / 10
+                           select num;
+
+            PrintNumbers(13, resNum13);
+            PrintNumbers(14, resNum14);
+
+            List<CBook> books = new List<CBook>();
+            books.Add(new CBook() { Title = "Java", Author = "Choi", Publisher = "Mirim", Price = 10000 });
+            books.Add(new CBook() { Title = "PHP", Author = "Ham", Publisher = "Mirim", Price = 10000 });
+            books.Add(new CBook() { Title = "Android", Author = "Ham", Publisher = "Mirim", Price = 10000 });
+            books.Add(new CBook() { Title = "swift", Author = "Jung", Publisher = "Mirim", Price = 10000 });
+            books.Add(new CBook() { Title = "C#", Author = "Jung", Publisher = "Mirim", Price = 10000 });
+
+            var resBooks1 = books.OrderBy(x => x.Price);
+            var resBooks2 = from book in books
+                            orderby book.Price
+                            select book;
+            Console.WriteLine("======");
+            Console.WriteLine("resBook1");
+            foreach(CBook iter in resBooks1)
+            {
+                Console.WriteLine("{0} : {1} : {2}", iter.Title, iter.Author, iter.Price);
+            }
+            Console.WriteLine("resBook2");
+            foreach(CBook iter in resBooks2)
+            {
+                Console.WriteLine("{0} : {1} : {2}", iter.Title, iter.Author, iter.Price);
+            }
+
+
+            var resBooks3 = books.OrderBy(x => x.Price);
+            var resBooks4 = from book in books
+                            orderby book.Price
+                            select book;
+            Console.WriteLine("resBooks3");
+            foreach (CBook iter in resBooks3)
+            {
+                Console.WriteLine("{0,8} : {1,5} : {2,6}", iter.Title, iter.Author, iter.Price);
+            }
+            Console.WriteLine("resBooks4");
+            foreach (CBook iter in resBooks4)
+            {
+                Console.WriteLine("{0,8} : {1,5} : {2,6}", iter.Title, iter.Author, iter.Price);
+            }
+
+            var resBooks5 = books.Where(x => x.Price<23000).Select(x=>new {Title=x.Title,Price = x.Price});
+            var resBooks6 = from book in books
+                            orderby book.Price<23000
+                            select book;
+            Console.WriteLine("resBooks5");
+            foreach (var iter in resBooks5)
+            {
+                Console.WriteLine("{0,8} : {1,6}", iter.Title, iter.Price);
+            }
+            Console.WriteLine("resBooks6");
+            foreach (var iter in resBooks6)
+            {
+                Console.WriteLine("{0,8} : {1,6}", iter.Title, iter.Price);
+            }
+
+            var resBooks7 = books.Where(x => x.Price < 23000).Select(x => new { Title = x.Title, Price = x.Price });
+            var resBooks8 = from book in books
+                            orderby book.Price < 20000
+                            select book;
+            Console.WriteLine("resBooks7");
+            foreach (var iter in resBooks7)
+            {
+                Console.WriteLine("{0,8} : {1,6}", iter.Title, iter.Price);
+            }
+            Console.WriteLine("resBooks8");
+            foreach (var iter in resBooks8)
+            {
+                Console.WriteLine("{0,8} : {1,6}", iter.Title, iter.Price);
+            }
+
+            var resBooks9 = books
+                .Where(x=> x.Author.StartsWith("H"))
+                .OrderBy(x => x.Price)
+                .Select(x => x.Title);
+
+            var resBooks10 = from book in books
+                             where book.Author.StartsWith("H")
+                             orderby book.Price
+                             select book.Title;
+
+            Console.WriteLine("resBooks9");
+            foreach(var iter in resBooks9)
+            {
+                Console.WriteLine("{0,8}", iter);
+            }
+
+            Console.WriteLine("resBooks10");
+            foreach (var iter in resBooks10)
+            {
+                Console.WriteLine("{0,8}", iter);
+            }
+
+            var resBooks11 = books
+                .Where(x => x.Publisher == "Mirim" && x.Author.Contains("J"))
+                .Select(x => new { x.Title, x.Price });
+
+            var resBooks12 = from book in books
+                             where book.Publisher == "Mirim" && book.Author.Contains("J")
+                             select new { book.Title, book.Price };
+
+            Console.WriteLine("resBooks11");
+            foreach(var iter in resBooks11)
+            {
+                Console.WriteLine("{0,8} : {1,6}", iter.Title, iter.Price);
+            }
+            Console.WriteLine("{0,8} : {1,6}", iter.Title, iter.Price);
+
             Console.ReadKey();
         }
         public static void PrintNumbers(int aIndex, IEnumerable<int> aNums)

@@ -40,6 +40,7 @@ namespace NetMVC01.Models
             TUser3513 tmpUser = new TUser3513();
             tmpUser.theID = aUser.theID;
             tmpUser.thePW = aUser.thePW;
+            tmpUser.theName = aUser.theName;
             tmpUser.theEMail = aUser.theEMail;
             tmpUser.bSubscription = aUser.bSubscription ? 1 : 0;
             tmpUser.theDate = DateTime.Now;
